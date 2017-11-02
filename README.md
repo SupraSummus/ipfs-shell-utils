@@ -11,6 +11,15 @@ Install
 Commands
 --------
 
+### ipfs-ls-r
+
+Recusively lists directory.
+
+    ipfs-ls-r Qmd5SFEy733qzzew3zNuAyzczs3ELzLE5gt87et6pMgbFR/iso
+    # QmRVozAaQK8gD3Z3Pa3vsBx34f68oBUR7g4usgnXoJtXmK	147038670	latest/
+    # QmZi4rNYPLpL8DkL3M6UUqe79ZQY6agr5ofrBaHzSXC5jM	147038165	latest/archlinux-bootstrap-2017.11.01-x86_64.tar.gz
+    # QmfMvRNZE9wr2dCnoobQs6mR1wdF9NkTzQFAPS5hMChFjh	321	latest/archlinux-bootstrap-2017.11.01-x86_64.tar.gz.sig
+
 ### ipfs-mkdir
 
 Creates direcory with specified contents. For example to create
