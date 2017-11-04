@@ -2,7 +2,7 @@
 set -e
 
 function ls_r {
-	ipfs ls $1 |
+	ipfs ls "$1" |
 	while read hash size name; do
 		echo -e "$hash\t$size\t$2$name"
 		if [[ "$name" =~ /$ ]]; then
@@ -11,4 +11,4 @@ function ls_r {
 	done
 }
 
-ls_r $1 ""
+ls_r "$1" ""
