@@ -20,6 +20,27 @@ Recusively lists directory.
     # QmZi4rNYPLpL8DkL3M6UUqe79ZQY6agr5ofrBaHzSXC5jM	147038165	latest/archlinux-bootstrap-2017.11.01-x86_64.tar.gz
     # QmfMvRNZE9wr2dCnoobQs6mR1wdF9NkTzQFAPS5hMChFjh	321	latest/archlinux-bootstrap-2017.11.01-x86_64.tar.gz.sig
 
+### ipfs-merge
+
+Recursively merges two trees. Conflicts are resolved in favour for second tree.
+This script requires bash.
+
+Slightly long example:
+
+    ipfs-ls-r QmX6HcULwFs85dYxhhsEVdf6ng6Wjqtq5d9Xxewx7LybYi
+    # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	bbb/
+    # QmcC7Zd4edNaxfYRG2sssnnJq9x5wSz4WZGqgPNszrEtRy	53	common/
+    # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	common/txt/
+    ipfs-ls-r QmQomi23vpduW6dyBGPJasU5hvbx5E7yPXmnrR6LXmBYWg
+    # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	aaa/
+    # QmNQxQC9mLao6rb2Q7KU9r5fQyk8xukrNFYayHxxmoKZfo	59	common/
+    # QmSFxnK675wQ9Kc1uqWKyJUaNxvSc2BP5DbXCD3x93oq61	10	common/txt
+    ipfs-ls-r `ipfs-merge QmX6HcULwFs85dYxhhsEVdf6ng6Wjqtq5d9Xxewx7LybYi QmQomi23vpduW6dyBGPJasU5hvbx5E7yPXmnrR6LXmBYWg`
+    # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	aaa/
+    # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	bbb/
+    # QmNQxQC9mLao6rb2Q7KU9r5fQyk8xukrNFYayHxxmoKZfo	59	common/
+    # QmSFxnK675wQ9Kc1uqWKyJUaNxvSc2BP5DbXCD3x93oq61	10	common/txt
+
 ### ipfs-mkdir
 
 Creates direcory with specified contents. For example to create
