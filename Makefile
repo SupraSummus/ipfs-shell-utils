@@ -9,3 +9,4 @@ install: $(SCRIPTS)
 	$(INSTALL) -m755 ipfs_merge.sh $(DESTDIR)$(bindir)/ipfs-merge
 	$(INSTALL) -m755 ipfs_mkdir.sh $(DESTDIR)$(bindir)/ipfs-mkdir
 	$(INSTALL) -m755 ipfs_publish_swap.sh $(DESTDIR)$(bindir)/ipfs-publish-swap
+	$(INSTALL) -m755 ipfs_orphans.sh $(DESTDIR)$(bindir)/ipfs-orphans

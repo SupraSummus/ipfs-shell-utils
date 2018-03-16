@@ -57,3 +57,11 @@ Unpublished paths are sent to stdout. For example:
     # Qm1111SomeHashThatWasPublishedPreviously111111
     ipfs-mkdir | ./ipfs_publish_swap.sh QmXBVaAJFN5FJ4Sxe2gMosL6mPgdhW3BkwbVJtXdm8tLyo 2> /dev/null
     # stdout is empty becuse nothing was unpublished
+
+### ipfs-orphans
+
+Print hashes pinned but not published on local node. Takes no arguments.
+
+    ipfs-orphans 
+    # QmcSYVyDQrm2gFD2EgcYqAvSYofVkUq7EnhWkmGzKQ8nVS
+    # QmSomeOtherHashaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
