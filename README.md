@@ -35,7 +35,7 @@ Slightly long example:
     # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	aaa/
     # QmNQxQC9mLao6rb2Q7KU9r5fQyk8xukrNFYayHxxmoKZfo	59	common/
     # QmSFxnK675wQ9Kc1uqWKyJUaNxvSc2BP5DbXCD3x93oq61	10	common/txt
-    ipfs-ls-r `ipfs-merge QmX6HcULwFs85dYxhhsEVdf6ng6Wjqtq5d9Xxewx7LybYi QmQomi23vpduW6dyBGPJasU5hvbx5E7yPXmnrR6LXmBYWg`
+    ipfs-ls-r $(ipfs-merge QmX6HcULwFs85dYxhhsEVdf6ng6Wjqtq5d9Xxewx7LybYi QmQomi23vpduW6dyBGPJasU5hvbx5E7yPXmnrR6LXmBYWg)
     # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	aaa/
     # QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn	4	bbb/
     # QmNQxQC9mLao6rb2Q7KU9r5fQyk8xukrNFYayHxxmoKZfo	59	common/
@@ -46,7 +46,7 @@ Slightly long example:
 Creates direcory with specified contents. For example to create
 directory with two empty directories named `aaa` and `bbb` run:
 
-    ipfs-mkdir aaa `ipfs-mkdir` bbb `ipfs-mkdir`
+    ipfs-mkdir aaa $(ipfs-mkdir) bbb $(ipfs-mkdir)
 
 ### ipfs-publish-swap
 
