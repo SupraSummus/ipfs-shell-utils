@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
+# use tab as field separator
+export IFS=$'\t'
+export OFS=$'\t'
+
 function ipfs_ls_mangled {
-	ipfs ls "$1" |
-	awk '$3 ~ /\/$/ {print substr($3, 1, length($3)-1)" d "$1; next} {print $3" f "$1}'
+	# output is of format: name type hash
+	# * decorate `ipfs ls` output with directory / file info
+	# * strip trailing slash
+	# * make output tab-delimited
+	ipfs ls "$1" | sed -e 's/  */\t/; s/  */\t/;' |
+	awk -F $'\t' 'BEGIN      {OFS="\t"}
+	              $3 ~ /\/$/ {print substr($3, 1, length($3)-1), "d", $1; next}
+	                         {print $3, "f", $1}'
 }
 
 function merge {
@@ -24,7 +34,7 @@ function merge {
 			echo "2 $3$name" 1>&2
 			hash=$(ipfs object patch add-link "$hash" "$name" "$hash2")
 		fi
-	done < <(join -a 2 <(ipfs_ls_mangled "$1") <(ipfs_ls_mangled "$2"))
+	done < <(join -t $'\t' -a 2 <(ipfs_ls_mangled "$1") <(ipfs_ls_mangled "$2"))
 
 	echo "$hash"
 }
